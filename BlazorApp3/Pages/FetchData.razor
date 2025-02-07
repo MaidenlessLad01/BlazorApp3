@@ -1,47 +1,52 @@
-﻿@page "/fetchdata"
-@using BlazorApp3.Data
-@inject WeatherForecastService ForecastService
+﻿@page "/login"
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>Login</PageTitle>
 
-<h1>Weather forecast</h1>
+<div class="login-form">
+ 
+    <h3 style="text-align: center; font-weight:bold; margin:15px;">Trainer Login</h3>
+    <div style="margin: 0px 0px 80px 0px;">
+        <div class="form-group">
+            <label style="margin:0px 20px 0px 40px" for="username">Username:</label>
+            <input type="text" id="username" class="form-control" @bind="username" />
+        </div>
 
-<p>This component demonstrates fetching data from a service.</p>
+        <div class="form-group">
+            <label style="margin:30px 0px 0px 40px" for="password">Password:</label>
+            <input type="password" id="password" class="form-control" @bind="password" />
+        </div>
 
-@if (forecasts == null)
+        <div class="form-group" style="justify-self: center; margin: 15px;">
+            <button @onclick="HandleLogin" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+    
+</div>
+
+@if (!string.IsNullOrEmpty(loginMessage))
 {
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="alert alert-info">@loginMessage</div>
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private string username;
+    private string password;
+    private string loginMessage;
 
-    protected override async Task OnInitializedAsync()
+    private void HandleLogin()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateOnly.FromDateTime(DateTime.Now));
+        // Simple validation and authentication logic
+        if (username == "admin" && password == "password")
+        {
+            loginMessage = "Login successful!";
+        }
+        else
+        {
+            loginMessage = "Invalid credentials!";
+        }
     }
 }
+
+
+
+

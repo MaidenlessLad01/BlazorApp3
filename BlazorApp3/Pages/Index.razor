@@ -14,7 +14,7 @@
             Its body is covered by a brown shell that is composed of earth.
         </p>
         <div class="button-container">
-            <button class="card-btn" Color="ButtonColor.Primary" To="#" style="background-color: mediumseagreen">Click Me!</button>
+            <button class="card-btn" @onclick="IncrementCountCard" Color="ButtonColor.Primary" To="#" style="background-color: mediumseagreen">Click Me!</button>
         </div> 
     </div>
     <div class="card" >
@@ -27,7 +27,7 @@
             Chimchar is a bipedal Pokémon resembling a chimpanzee. Its fur is primarily a shade of orange, although its face, outer ears, underbelly, hands, and feet are light yellow.
         </p>
         <div class="button-container">
-            <button class="card-btn" Color="ButtonColor.Primary" To="#" style="background-color: indianred">Click Me!</button>
+            <button class="card-btn" @onclick="IncrementCountCard1" Color="ButtonColor.Primary" To="#" style="background-color: indianred">Click Me!</button>
         </div>
     </div>
     <div class="card">
@@ -40,10 +40,76 @@
             Piplup is a light-blue, penguin-like Pokémon, which is covered in thick down to insulate against the cold. It has a dark blue head with a primarily white face and a short, yellow beak.
         </p>
         <div class="button-container">
-            <button class="card-btn" Color="ButtonColor.Primary" To="#" style="background-color: lightskyblue">Click Me!</button>
+            <button class="card-btn" @onclick="IncrementCountCard2" Color="ButtonColor.Primary" To="#" style="background-color: lightskyblue">Click Me!</button>
         </div>
     </div>
 </div>
+<div   style="display: flex; width: 100%;">
+
+    <ul class="list-container">
+        @for (int i = 0; i<currentCount; i++)
+        {
+            <li>Happy Coding</li>
+        }
+    </ul >
+    <ul class="list-container">
+        @for (int i = 0; i<currentCount1; i++)
+        {
+            <li>Happy Coding</li>
+        }
+    </ul>
+    <ul class="list-container">
+        @for (int i = 0; i < currentCount2; i++)
+        {
+            <li>Happy Coding</li>
+        }
+    </ul>
+</div>
 
 
+@code{
 
+    private int currentCount = 0;
+    private int currentCount1 = 0;
+    private int currentCount2 = 0;
+    private bool max;
+    private bool max1;
+    private bool max2;
+
+
+    private void IncrementCountCard()
+    {
+        Thread.Sleep(7000);
+        if (!max)
+        {
+            currentCount += 7;
+            if (currentCount == 7)
+            {
+                max = true;
+            }
+        }
+    }
+    private void IncrementCountCard1()
+    {
+        Thread.Sleep(3000);
+        if (!max1)
+        {
+            currentCount1 += 7;
+            if (currentCount1 == 7)
+            {
+                max1 = true;
+            }
+        }
+    }
+    private void IncrementCountCard2()
+    {
+        if (!max2)
+        {
+            currentCount2 += 7;
+            if (currentCount2 == 7)
+            {
+                max2 = true;
+            }
+        }
+    }
+}

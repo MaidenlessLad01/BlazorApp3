@@ -1,11 +1,38 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+
+.login-form {
+    border: 5px solid black;
+    box-shadow: rgba(0,0,0,0.5) 5px 6px 5px;
+    width: 400px;
+    height: 580px;
+    border-radius: 10px;
+    align-self: center;
+    justify-self: center;
+    align-items: center;
+    align-content:center;
+    background-color: beige;
+    margin: 0px 0px 50px 0px;
+}
+.form-control {
+    width: 80%;
+    padding: 10px;
+    justify-self:center;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 .card {
     border: 5px solid black;
     box-shadow: rgba(0,0,0,0.5) 5px 6px 5px;
     width: 400px;
     height: 580px;
     border-radius: 10px;
+    background-color: beige;
+}
+.list-container {
+    width: 400px;
+    text-align: center;
 }
 .card-image{
     background-repeat: no-repeat;
@@ -53,6 +80,34 @@ p {
     display: flex;
     justify-content: center;
     border-radius: 10px;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 10px; 
+    align-content: center;
+    justify-items:center;
+    justify-self:center;
+    gap:45px;
+
+}
+
+.grid-image {
+    background-color:beige;
+    background-repeat: no-repeat;
+    width: 250px;
+    border-radius:10px;
+    height: 250px;
+    border: 5px solid black;
+    padding: 15px;
+}
+.grid-bg {
+    background: url('/image/bg.jpg');
+    background-size:cover;
+    height: 100%;
+    width: 100%;
+    padding:0%;
+    margin:0%;  
 }
 
 
